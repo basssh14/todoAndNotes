@@ -1,5 +1,6 @@
-import React from 'react';
-import Customers from './Components/customers/Customers';
+import React from "react";
+import Customers from "./Components/customers/Customers";
+import PropTypes from "prop-types";
 
 function App() {
   return (

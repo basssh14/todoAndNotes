@@ -47,7 +47,7 @@ function Landing({ isAuthenticated, loading }) {
               <h2 className="text-black text-md font-semibold text-medium uppercase -mt-2">
                 Start Managing Your Time Now
               </h2>
-              <form action="http://localhost:5000/api/auth/google">
+              <form action="https://gentle-castle-34317.herokuapp.com:5000/api/auth/google">
                 <button
                   type="submit"
                   className="bg-black text-white w-1/2 mx-2 h-14 pt-1 uppercase mt-8 text-xl font-semibold rounded-full button-shadow outline-button"

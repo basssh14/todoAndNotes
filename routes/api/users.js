@@ -73,7 +73,7 @@ router.post(
 router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
   Note.findOne({ user: req.user.id }).then((currentUser) => {
     if (currentUser) {
-      return res.redirect("http://localhost:3000/");
+      return res.redirect("https://gentle-castle-34317.herokuapp.com");
     } else {
       new Flag({
         user: req.user.id,
@@ -89,7 +89,7 @@ router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
           }).save()
         )
         .then(() => {
-          res.redirect("http://localhost:3000/");
+          res.redirect("https://gentle-castle-34317.herokuapp.com/");
         });
     }
   });

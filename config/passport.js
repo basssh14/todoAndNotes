@@ -12,7 +12,8 @@ module.exports = function (passport) {
       {
         clientID: idC,
         clientSecret: seC,
-        callbackURL: "/api/auth/google/redirect",
+        callbackURL:
+          "https://gentle-castle-34317.herokuapp.com/api/auth/google/redirect",
       },
       (accessToken, refreshToken, profile, done) => {
         User.findOne({ googleId: profile.id }).then((currentUser) => {

@@ -1,0 +1,254 @@
+@tailwind base;
+.backgroundImage {
+  filter: brightness(0.65) saturate(1.3);
+}
+.blurStuff {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+.titleTranslate {
+  transform: translateX(-47%);
+}
+.titleTranslate2 {
+  transform: translateX(-50%);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+.centerSom {
+  @apply absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2;
+}
+.centerVertical {
+  @apply top-1/2 transform -translate-y-1/2;
+}
+.centerHorizontal {
+  @apply left-1/2 transform -translate-x-1/2;
+}
+/* .controlHeight {
+  min-height: 53rem;
+} */
+.button-shadow {
+  @apply transition duration-200 ease-in-out hover:shadow-xl transform hover:-translate-y-2 hover:scale-105;
+}
+.box-shadow {
+  @apply transition duration-200 ease-in-out hover:shadow-lg transform hover:-translate-y-2 hover:scale-105;
+}
+.menu-shadow {
+  @apply transition duration-200 ease-in-out  transform hover:-translate-y-2 hover:scale-105;
+}
+.outline-button {
+  @apply focus:outline-none focus:ring-2 focus:ring-white;
+}
+.button-t2 {
+  @apply bg-black text-white w-1/2 h-14 pt-1 uppercase mt-8 text-xl font-semibold rounded-full button-shadow outline-button;
+}
+.testBorder {
+  @apply border border-black;
+}
+.padding-personal {
+  padding-left: 4.5rem;
+}
+.boxSize {
+  max-width: 74rem;
+  min-height: max-content;
+}
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.success {
+  background-color: #003049;
+}
+.error {
+  background-color: #d62828;
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  .prueba {
+    height: fit-content !important;
+  }
+}
+@media (min-width: 901px) {
+  .controlHeight {
+    min-height: 53rem;
+  }
+}
+@media (max-width: 900px) {
+  .controlPopUpH {
+    min-height: 55rem;
+  }
+}
+@media (max-width: 800px) and (orientation: landscape) {
+  .controlHeight2 {
+    min-height: 55rem !important;
+  }
+  .flagPop {
+    min-height: 15rem;
+  }
+  .newNotePop {
+    min-height: 20rem;
+  }
+  .editNotePop {
+    min-height: 20rem;
+  }
+}
+.iosProblem {
+  /* -webkit-mask-image: -webkit-radial-gradient(white, black); */
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+.iosProblem2 {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+}
+.controlHeight2 {
+  min-height: 40rem;
+}
+.controlPopUpH {
+  min-height: 45rem;
+}
+.flagPop {
+  min-height: 12rem;
+}
+.newNotePop {
+  min-height: 20rem;
+}
+.editNotePop {
+  min-height: 20rem;
+}
+.rec.rec-pagination {
+  visibility: hidden;
+  display: none;
+}
+.rec.rec-carousel,
+.rec.rec-slider,
+.rec.rec-swipable,
+.rec.rec-carousel-item,
+.rec.rec-item-wrapper {
+  height: 100% !important;
+}
+.popUp {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.popUp:target {
+  opacity: 1;
+  visibility: visible;
+}
+.specialBorder {
+  width: 60%;
+  height: 1px;
+  color: black;
+}
+.popUp2 {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.popUp2:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popUp3 {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.popUp3:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popUp4 {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.popUp4:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popUp5 {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 1000;
+}
+.popUp5:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* @media (max-width: 1000px) and (max-height: 650px) {
+  .max-box {
+    height: 80%;
+  }
+}
+/* @media (min-width: 901px) and (max-height: 650px) {
+  .max-box {
+    height: 70%;
+  }
+}
+@media (min-width: 901px) and (max-height: 550px) {
+  .max-box {
+    height: 80%;
+  }
+}
+@media (min-width: 901px) and (max-height: 460px) {
+  .max-box {
+    height: 90%;
+  }
+} */
+/* the scrollbar stuff */
+.track-vertical {
+  top: 2px;
+  bottom: 2px;
+  right: 0px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.111);
+}
+.track-vertical .thumb-vertical {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(196, 196, 197, 0.418);
+}
+
+.track-horizontal {
+  position: absolute;
+  height: 6px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: 3px;
+}
+.track-horizontal .thumb-horizontal {
+  position: relative;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+  border-radius: inherit;
+  background-color: rgba(125, 149, 255, 0.993);
+}
+
+.view {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  overflow: scroll;
+  margin-right: -15px;
+  margin-bottom: -17px !important;
+}
+@tailwind components;
+@tailwind utilities;

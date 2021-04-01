@@ -8,7 +8,7 @@ function Alert({ alerts }) {
   if (alerts !== null && alerts.length > 0) {
     console.log("this is an alert ");
     return (
-      <div className="alertsMaster w-2/5 absolute centerHorizontal">
+      <div className="alertsMaster w-2/5 absolute centerHorizontal lg:w-3/5 sm2:w-4/5 sm:w-full">
         <div className="relative">
           {alerts.map((alert) => (
             <div

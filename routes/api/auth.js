@@ -50,7 +50,7 @@ router.get(
 router.get(
   "/google/redirect",
   passport.authenticate("google", {
-     failureRedirect: "https://gentle-castle-34317.herokuapp.com/LoginFailure",
+     failureRedirect: "https://glacial-taiga-46309.herokuapp.com/LoginFailure",
     //failureRedirect: "http://localhost:3000/LoginFailure",
   }),
   function (req, res) {
@@ -72,7 +72,7 @@ router.get("/error_login", (req, res) => {
 
 router.get("/logout", [ensureAuthenticated], (req, res) => {
   req.logout();
- res.redirect("https://gentle-castle-34317.herokuapp.com");
+ res.redirect("https://glacial-taiga-46309.herokuapp.com");
 
   //res.json({ msg: "logged out" });
   //res.redirect("http://localhost:3000");

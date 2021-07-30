@@ -48,7 +48,7 @@ function Landing({ isAuthenticated, loading }) {
                 Start Managing Your Time Now
               </h2>
               {/* <form action="http://localhost:5000/api/auth/google"> */}
-              <form action="https://gentle-castle-34317.herokuapp.com/api/auth/google">
+              <form action="https://glacial-taiga-46309.herokuapp.com/api/auth/google">
               
                 <button
                   type="submit"

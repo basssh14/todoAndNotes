@@ -73,7 +73,7 @@ router.post(
 router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
   Note.findOne({ user: req.user.id }).then((currentUser) => {
     if (currentUser) {
-      return res.redirect("https://gentle-castle-34317.herokuapp.com");
+      return res.redirect("https://glacial-taiga-46309.herokuapp.com");
       //return res.redirect("http://localhost:3000/");
     } else {
       new Flag({
@@ -90,7 +90,7 @@ router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
           }).save()
         )
         .then(() => {
-          res.redirect("https://gentle-castle-34317.herokuapp.com/");
+          res.redirect("https://glacial-taiga-46309.herokuapp.com/");
           //res.redirect("http://localhost:3000/");
         });
     }

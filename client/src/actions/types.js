@@ -1,5 +1,6 @@
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const DELETE_USER = "DELETE_USER";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const GET_TODOS = "GET_TODOS";

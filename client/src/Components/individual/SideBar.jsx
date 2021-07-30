@@ -6,6 +6,10 @@ import { connect } from "react-redux";
 import { userLogout } from "../../actions/auth";
 
 function SideBar({ changePopUps, userLogout }) {
+  const logout = (e) => {
+    e.preventDefault();
+    userLogout();
+  }
   return (
     <Fragment>
       <div
@@ -54,7 +58,7 @@ function SideBar({ changePopUps, userLogout }) {
                       <p className="absolute centerSom">profile</p>
                     </li>
                   </a>
-                  <a role="button" onClick={userLogout} className="">
+                  <a role="button" onClick={(e) => logout(e)} className="">
                     <li className="w-full h-1/5 text-2xl uppercase font-light relative menu-shadow">
                       <p className="absolute centerSom">log out</p>
                     </li>

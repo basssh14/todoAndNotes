@@ -6,11 +6,12 @@ import { Scrollbars } from "react-custom-scrollbars";
 //redux stuff
 import { connect } from "react-redux";
 
-function DayTodos({ changePopUps, flags, changeBoxDate }) {
+function DayTodos({ changePopUps, changeBoxDate, todos, setTodoTrue }) {
   const date = new Date();
   let currentYear = date.getFullYear();
   let counter = 1;
   let controlHeight = "h-4/5";
+  let chooseColor = "bg-gray-300";
   let dayBoxesArray = [];
   const monthsNames = [
     "January",
@@ -45,6 +46,19 @@ function DayTodos({ changePopUps, flags, changeBoxDate }) {
       }
     }
   }
+  function decideColor(year, month, day){
+    if(todos.filter(todo => todo.selector === `${year}-${month}-${day}`).length < 1){
+      chooseColor = "bg-gray-300";
+    } else{
+      let dayCompleted = todos.filter(todo => todo.selector === `${year}-${month}-${day}`).filter(todo => todo.isCompleted === true).length;
+      let dayIncompleted = todos.filter(todo => todo.selector === `${year}-${month}-${day}`).filter(todo => todo.isCompleted === false).length;
+      if(dayCompleted > dayIncompleted){
+        chooseColor = "bg-green-400";
+      } else{
+        chooseColor = "bg-red-500";
+      }
+    }
+  }
   const monthDays = function (month, year) {
     return new Date(year, month + 1, 0).getDate();
   };
@@ -59,6 +73,7 @@ function DayTodos({ changePopUps, flags, changeBoxDate }) {
     }
     dayBoxesArray = [];
     while (counter <= monthDays(monthNumber.number, currentYear)) {
+      decideColor(currentYear, monthsNames[monthNumber.number], counter);
       dayBoxesArray.push(
         <a
           role="button"
@@ -69,8 +84,9 @@ function DayTodos({ changePopUps, flags, changeBoxDate }) {
               day: e.currentTarget.id,
               month: monthsNames[monthNumber.number],
             };
+            console.log(newDate);
             changeBoxDate(newDate);
-            changePopUps("todo");
+            setTodoTrue();
           }}
         >
           <div
@@ -79,7 +95,7 @@ function DayTodos({ changePopUps, flags, changeBoxDate }) {
             <h2 className="number text-6xl absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
               {counter}
             </h2>
-            <div className="w-1/3 h-24/2 bg-red-500 absolute bottom-0 iosProblem overflow-hidden"></div>
+            <div className={`w-full h-24/2 ${chooseColor} absolute bottom-0 iosProblem overflow-hidden`}></div>
           </div>
         </a>
       );
@@ -94,6 +110,9 @@ function DayTodos({ changePopUps, flags, changeBoxDate }) {
     changeDays();
     setDayBoxes(dayBoxesArray);
   }, [monthNumber.number]);
+  useEffect(() => {
+    setDayBoxes(dayBoxesArray);
+  }, [todos]);
   return (
     <Fragment>
       {/* <!-- Start of main div --> */}
@@ -168,11 +187,14 @@ function DayTodos({ changePopUps, flags, changeBoxDate }) {
 DayTodos.propTypes = {
   changePopUps: PropTypes.func.isRequired,
   flags: PropTypes.object.isRequired,
+  todos: PropTypes.object.isRequired,
   changeBoxDate: PropTypes.func.isRequired,
+  setTodoTrue: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   flags: state.flag,
+  todos: state.todos.todos,
 });
 
 export default connect(mapStateToProps)(DayTodos);

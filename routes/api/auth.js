@@ -50,7 +50,8 @@ router.get(
 router.get(
   "/google/redirect",
   passport.authenticate("google", {
-    failureRedirect: "https://gentle-castle-34317.herokuapp.com/LoginFailure",
+     failureRedirect: "https://gentle-castle-34317.herokuapp.com/LoginFailure",
+    //failureRedirect: "http://localhost:3000/LoginFailure",
   }),
   function (req, res) {
     res.redirect("/api/users/createDBS");
@@ -71,8 +72,15 @@ router.get("/error_login", (req, res) => {
 
 router.get("/logout", [ensureAuthenticated], (req, res) => {
   req.logout();
-  res.redirect("https://gentle-castle-34317.herokuapp.com");
-  res.json({ msg: "logged out" });
+ res.redirect("https://gentle-castle-34317.herokuapp.com");
+
+  //res.json({ msg: "logged out" });
+  //res.redirect("http://localhost:3000");
+});
+
+//@test route
+router.get("/test", (req, res) => {
+  res.redirect("http://localhost:3000/");
 });
 
 module.exports = router;

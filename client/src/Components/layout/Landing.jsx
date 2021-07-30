@@ -15,7 +15,7 @@ function Landing({ isAuthenticated, loading }) {
         {/* <!-- background image --> */}
         <img
           src="./img/max-bender-s4I1xpX_ny8-unsplash.jpg"
-          alt="Bg image"
+          alt="Bg"
           className="w-full h-full backgroundImage"
         />
         {/* <!-- box div --> */}
@@ -47,7 +47,9 @@ function Landing({ isAuthenticated, loading }) {
               <h2 className="text-black text-md font-semibold text-medium uppercase -mt-2">
                 Start Managing Your Time Now
               </h2>
+              {/* <form action="http://localhost:5000/api/auth/google"> */}
               <form action="https://gentle-castle-34317.herokuapp.com/api/auth/google">
+              
                 <button
                   type="submit"
                   className="bg-black text-white w-1/2 mx-2 h-14 pt-1 uppercase mt-8 text-xl font-semibold rounded-full button-shadow outline-button"
@@ -55,6 +57,7 @@ function Landing({ isAuthenticated, loading }) {
                   <img
                     src="https://img.icons8.com/fluent/48/000000/google-logo.png"
                     className="inline w-8 mb-1"
+                    alt="googleLogo"
                   />
                   Google
                 </button>
@@ -62,6 +65,7 @@ function Landing({ isAuthenticated, loading }) {
                   <img
                     src="https://img.icons8.com/color/48/000000/facebook-new.png"
                     className="inline w-8 mb-1"
+                    alt="facebook logo"
                   />
                   Facebook
                 </button>

@@ -74,6 +74,7 @@ router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
   Note.findOne({ user: req.user.id }).then((currentUser) => {
     if (currentUser) {
       return res.redirect("https://gentle-castle-34317.herokuapp.com");
+      //return res.redirect("http://localhost:3000/");
     } else {
       new Flag({
         user: req.user.id,
@@ -90,12 +91,13 @@ router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
         )
         .then(() => {
           res.redirect("https://gentle-castle-34317.herokuapp.com/");
+          //res.redirect("http://localhost:3000/");
         });
     }
   });
 });
 
-//@route GET api/users/delete
+//@route delete api/users/delete
 //@desc  delete a user, notes, flags, todos
 //@access private
 router.delete("/delete", [ensureAuthenticated], async (req, res) => {

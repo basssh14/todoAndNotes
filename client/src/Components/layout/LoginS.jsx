@@ -15,6 +15,8 @@ import { getNotes, deleteNote } from "../../actions/notes";
 //redux stuff
 import { connect } from "react-redux";
 import Alert from "../individual/Alert";
+import { setAlert } from "../../actions/Alert";
+import { deleteUser } from "../../actions/auth";
 
 function LoginS({
   auth: { loading, user },
@@ -24,6 +26,8 @@ function LoginS({
   getFlags,
   getNotes,
   deleteNote,
+  setAlert,
+  deleteUser,
 }) {
   const [popUps, setPopUps] = useState({
     menu: false,
@@ -45,6 +49,9 @@ function LoginS({
   }
   function changeNoteId(e) {
     setNoteIdForUpdate({ ...noteIdForUpdate, ["id"]: e.target.id });
+  }
+  function setTodoTrue() {
+    setPopUps({ ...popUps, ["todo"]: true });
   }
   function changePopUps(target) {
     if (target === "menu") {
@@ -107,6 +114,15 @@ function LoginS({
     getFlags();
     getNotes();
   }, [getTodos, getFlags, getNotes]);
+  useEffect(() => {
+    if (user.tipo === "demo") {
+      setAlert("Your demo period will go for 15 min, enjoy!", "error");
+      setTimeout(() => {
+        setAlert("Sorry, your demo period is over.", "error");
+        deleteUser();
+      }, 900000);
+    }
+  }, []);
   return todos.loading && todos.todos === null ? (
     <Spinner />
   ) : (
@@ -159,7 +175,11 @@ function LoginS({
           </div>
         </header>
         {/* <!-- Start of main div --> */}
-        <DayTodos changePopUps={changePopUps} changeBoxDate={changeBoxDate} />
+        <DayTodos
+          changePopUps={changePopUps}
+          changeBoxDate={changeBoxDate}
+          setTodoTrue={setTodoTrue}
+        />
         {/* <!-- Notes stuff --> */}
         <div className="h-44/2 mx-20 relative lg:mx-10 md:px-0">
           <div className="notes-container w-full h-5/6 absolute top-1/2 transform -translate-y-1/2">
@@ -461,6 +481,8 @@ LoginS.propTypes = {
   getFlags: PropTypes.func.isRequired,
   getNotes: PropTypes.func.isRequired,
   deleteNote: PropTypes.func.isRequired,
+  setAlert: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   auth: state.auth,
@@ -472,5 +494,7 @@ export default connect(mapStateToProps, {
   getTodos,
   getFlags,
   getNotes,
+  setAlert,
   deleteNote,
+  deleteUser,
 })(LoginS);

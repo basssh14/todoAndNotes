@@ -1,4 +1,9 @@
-import { LOGIN_SUCCESS, AUTH_ERROR, USER_LOGOUT } from "../actions/types";
+import {
+  LOGIN_SUCCESS,
+  AUTH_ERROR,
+  USER_LOGOUT,
+  DELETE_USER,
+} from "../actions/types";
 const initialState = {
   isAuthenticated: null,
   loading: true,
@@ -15,6 +20,7 @@ export default function (state = initialState, action) {
       };
     case AUTH_ERROR:
     case USER_LOGOUT:
+    case DELETE_USER:
       return {
         ...initialState,
         isAuthenticated: false,

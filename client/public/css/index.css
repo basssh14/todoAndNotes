@@ -5,6 +5,8 @@
 .blurStuff {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
 }
 .titleTranslate {
   transform: translateX(-47%);

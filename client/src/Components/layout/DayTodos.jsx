@@ -92,7 +92,8 @@ function DayTodos({ changePopUps, changeBoxDate, todos, setTodoTrue }) {
           <div
             className={`border-3 border-black col-span-1 iosProblem w-full h-full rounded-box relative overflow-hidden  mx-auto min-h-32`}
           >
-            <h2 className="number text-6xl absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
+            {console.log(counter +  " : " + date.getDay())}
+            <h2 className={`number text-6xl absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ${monthNumber.number === date.getMonth() ?  counter === date.getDate() ? "text-gray-300" : "text-black" : "text-black"}`}>
               {counter}
             </h2>
             <div className={`w-full h-24/2 ${chooseColor} absolute bottom-0 iosProblem overflow-hidden`}></div>

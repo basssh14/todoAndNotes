@@ -73,8 +73,8 @@ router.post(
 router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
   Note.findOne({ user: req.user.id }).then((currentUser) => {
     if (currentUser) {
-      return res.redirect("https://glacial-taiga-46309.herokuapp.com");
-      //return res.redirect("http://localhost:3000/");
+      //return res.redirect("https://glacial-taiga-46309.herokuapp.com");
+      return res.redirect("http://localhost:3000/");
     } else {
       new Flag({
         user: req.user.id,
@@ -90,8 +90,8 @@ router.get("/createDBS", [ensureAuthenticated], async (req, res) => {
           }).save()
         )
         .then(() => {
-          res.redirect("https://glacial-taiga-46309.herokuapp.com/");
-          //res.redirect("http://localhost:3000/");
+          //res.redirect("https://glacial-taiga-46309.herokuapp.com/");
+          res.redirect("http://localhost:3000/");
         });
     }
   });

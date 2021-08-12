@@ -47,8 +47,9 @@ function Landing({ isAuthenticated, loading }) {
               <h2 className="text-black text-md font-semibold text-medium uppercase -mt-2">
                 Start Managing Your Time Now
               </h2>
-              {/* <form action="http://localhost:5000/api/auth/google"> */}
-              <form action="https://glacial-taiga-46309.herokuapp.com/api/auth/google">
+              
+              {/* <form action="https://glacial-taiga-46309.herokuapp.com/api/auth/google"> */}
+                <form action="http://localhost:5000/api/auth/google">
               
                 <button
                   type="submit"
